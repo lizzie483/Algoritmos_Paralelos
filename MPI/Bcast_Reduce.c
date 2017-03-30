@@ -19,6 +19,8 @@ MPI_Barrier(MPI_COMM_WORLD);
   //que antes que se reduzca el reduce todo se haya logrado.
 MPI_Reduce(&data,&res, 1, MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
 
+//Este if nos indica que solo el proceso 0 va a tener el resultado final, 
+  //los demas procesos tiene un valor no definido de res
 if(me==0){
 //Impirmir resultado proceso 0
   printf("Proceso %d, res: %d",me,res);
